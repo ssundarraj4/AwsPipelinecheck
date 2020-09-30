@@ -1,0 +1,19 @@
+version: 0.1
+phases:
+  pre_build: 
+    commands: 
+      - "echo Logging in to Docker Hub..."
+      - aws --version
+      - (Get-ECRLoginCommand).Password | docker login --username AWS --password-stdin 414006086822.dkr.ecr.us-east-1.amazonaws.com
+      - REPOSITORY_URI=414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo:latest
+  build: 
+    commands: 
+      - "echo Build started on `date`"
+      - "echo Building the Docker image..."
+      - docker build -t dockerchkrepo .
+      - docker tag dockerchkrepo:latest 414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo:latest
+  post_build: 
+    commands: 
+      - "echo Build completed on `date`"
+      - "echo Pushing the Docker image..."
+      - docker push 414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo:latest
