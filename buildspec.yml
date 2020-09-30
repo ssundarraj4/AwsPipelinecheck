@@ -14,8 +14,8 @@ phases:
       - echo building the Jar file
       - mvn clean install
       - echo Building the Docker image...
-      - docker build -t $REPOSITORY_URI:latest .
-      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+      - docker build -t 414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo:latest .
+      - docker tag 414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo:latest $REPOSITORY_URI:$IMAGE_TAG
   post_build:
     commands:
       - echo Build completed on `date`
