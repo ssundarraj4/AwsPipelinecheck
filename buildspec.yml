@@ -19,7 +19,7 @@ phases:
       - echo disploaying repository and image uri
       - echo $REPOSITORY_URI
       - echo $IMAGE_TAG
-      - docker tag 414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo:latest 414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo:$IMAGE_TAG
+      - docker tag 414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo:latest 414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo:build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   post_build:
     commands:
       - echo Build completed on `date`
