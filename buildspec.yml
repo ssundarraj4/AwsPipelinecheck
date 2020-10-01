@@ -24,10 +24,10 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker push $REPOSITORY_URI:latest
-      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - docker push 414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo
+      - docker push 414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo:build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
       - echo Writing image definitions file...
-      - printf '[{"name":"cicd-container","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"cicd-container","imageUri":"%s"}]' 414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo:build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}') > imagedefinitions.json
       - cat imagedefinitions.json
 artifacts:
     files: imagedefinitions.json
