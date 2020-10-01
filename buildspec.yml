@@ -16,7 +16,7 @@ phases:
       - echo Building the Docker image...
       - docker build -t 414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo:latest .
       - docker images
-      - docker tag 414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo:latest 414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo:$IMAGE_TAG
+      - docker tag "414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo":"latest" "414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo":$IMAGE_TAG
   post_build:
     commands:
       - echo Build completed on `date`
