@@ -7,6 +7,6 @@ public class TestPkg {
 
 	@GetMapping("api/v1/disp")
 	public String disp() {
-		return "Hello World, nice its working now !!!2";
+		return "Hello World, good morning everyone";
 	}
 }
