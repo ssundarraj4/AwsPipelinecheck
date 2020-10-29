@@ -24,7 +24,7 @@ phases:
       - docker push 414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo
       - docker push 414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo:build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
       - echo Writing image definitions file...
-      - printf '[{"name":"dockerchkcontainer","imageUri":"%s"}]' 414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo:build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}') > imagedefinitions.json
+      - printf '[{"name":"newdockerchkcontainer","imageUri":"%s"}]' 414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo:build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}') > imagedefinitions.json
       - cat imagedefinitions.json
 artifacts:
     files: imagedefinitions.json
