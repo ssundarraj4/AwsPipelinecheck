@@ -3,7 +3,7 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: <TASK_DEFINITION>
+        TaskDefinition: "arn:aws:ecs:us-east-1:414006086822:task-definition/TDD:1"
         LoadBalancerInfo:
           ContainerName: "dockercon"
           ContainerPort: 8081
