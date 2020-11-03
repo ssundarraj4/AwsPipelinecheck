@@ -26,5 +26,8 @@ phases:
       - echo Writing image definitions file...
       - printf '[{"name":"dodckercon","imageUri":"%s"}]' 414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo:build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}') > imagedefinitions.json
       - cat imagedefinitions.json
+      - printf '[{"name":"dodckercon","imageUri":"%s"}]' 414006086822.dkr.ecr.us-east-1.amazonaws.com/dockerchkrepo:build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}') > imageDetail.json
+      - cat imageDetail.json
 artifacts:
     files: imagedefinitions.json
+    files: imageDetail.json
